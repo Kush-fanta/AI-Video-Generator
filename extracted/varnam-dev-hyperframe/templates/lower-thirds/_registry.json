@@ -1,0 +1,68 @@
+[
+  {
+    "id": "lower-thirds/speaker-id",
+    "category": "lower-thirds",
+    "file": "lower-thirds/speaker-id.tsx",
+    "compositionId": "lt-speaker-id",
+    "exportName": "SpeakerId",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "lower-thirds/source-citation",
+    "category": "lower-thirds",
+    "file": "lower-thirds/source-citation.tsx",
+    "compositionId": "lt-source-citation",
+    "exportName": "SourceCitation",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 90,
+    "qc": null
+  },
+  {
+    "id": "lower-thirds/fact-box",
+    "category": "lower-thirds",
+    "file": "lower-thirds/fact-box.tsx",
+    "compositionId": "lt-fact-box",
+    "exportName": "FactBox",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "lower-thirds/location-tag",
+    "category": "lower-thirds",
+    "file": "lower-thirds/location-tag.tsx",
+    "compositionId": "lt-location-tag",
+    "exportName": "LocationTag",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 120,
+    "qc": null
+  },
+  {
+    "id": "lower-thirds/chapter-lower",
+    "category": "lower-thirds",
+    "file": "lower-thirds/chapter-lower.tsx",
+    "compositionId": "lt-chapter-lower",
+    "exportName": "ChapterLower",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 120,
+    "qc": null
+  },
+  {
+    "id": "lower-thirds/expert-credential",
+    "category": "lower-thirds",
+    "file": "lower-thirds/expert-credential.tsx",
+    "compositionId": "lt-expert-credential",
+    "exportName": "ExpertCredential",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  }
+]

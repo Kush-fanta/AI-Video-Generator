@@ -1,0 +1,23 @@
+=== IMPORTS ===
+import { Odometer } from "./counter/odometer";
+import { EasingNumber } from "./counter/easing-number";
+import { SplitFlap } from "./counter/split-flap";
+import { LiveTicker } from "./counter/live-ticker";
+import { DeltaCounter } from "./counter/delta-counter";
+import { MultiStat } from "./counter/multi-stat";
+
+=== DEMOS ===
+const D_counter_1 = () => <Odometer value={1850} label="GCCs in India" source="NASSCOM 2024" at={15} />;
+const D_counter_2 = () => <EasingNumber value={42.7} decimals={1} suffix="M" label="Monthly Active Users" source="Internal Analytics Q4 2025" at={10} />;
+const D_counter_3 = () => <SplitFlap value="1850" label="Global Capability Centers" source="NASSCOM 2024" at={10} />;
+const D_counter_4 = () => <LiveTicker items={[{ key: "GCCs", value: "1,850" }, { key: "Revenue", value: "$64.1B", color: "#6D917D" }, { key: "Talent", value: "1.9M" }, { key: "Growth", value: "+18%", color: "#6D917D" }]} headline="India GCC Dashboard" source="NASSCOM 2024" at={5} />;
+const D_counter_5 = () => <DeltaCounter delta="+12.4M" direction="up" before="₹2.1T" beforeLabel="FY 2023" after="₹3.5T" afterLabel="FY 2025" label="Tax Revenue Growth" source="Ministry of Finance 2025" at={10} />;
+const D_counter_6 = () => <MultiStat stats={[{ value: 580000, label: "Deaths", suffix: "K", decimals: 0 }, { value: 6.9, label: "Displaced", suffix: "M", decimals: 1 }, { value: 4.5, label: "Economic Cost", prefix: "$", suffix: "T", decimals: 1 }]} categoryLabel="CONFLICT IMPACT" source="UN OCHA 2025" at={5} />;
+
+=== COMPOSITIONS ===
+<Composition id="counter-odometer" component={D_counter_1} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="counter-easing-number" component={D_counter_2} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="counter-split-flap" component={D_counter_3} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="counter-live-ticker" component={D_counter_4} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="counter-delta-counter" component={D_counter_5} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="counter-multi-stat" component={D_counter_6} width={1920} height={1080} fps={30} durationInFrames={150} />

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "counter/odometer",
+    "category": "counter",
+    "file": "counter/odometer.tsx",
+    "compositionId": "counter-odometer",
+    "exportName": "Odometer",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "counter/easing-number",
+    "category": "counter",
+    "file": "counter/easing-number.tsx",
+    "compositionId": "counter-easing-number",
+    "exportName": "EasingNumber",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "counter/split-flap",
+    "category": "counter",
+    "file": "counter/split-flap.tsx",
+    "compositionId": "counter-split-flap",
+    "exportName": "SplitFlap",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "counter/live-ticker",
+    "category": "counter",
+    "file": "counter/live-ticker.tsx",
+    "compositionId": "counter-live-ticker",
+    "exportName": "LiveTicker",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "counter/delta-counter",
+    "category": "counter",
+    "file": "counter/delta-counter.tsx",
+    "compositionId": "counter-delta-counter",
+    "exportName": "DeltaCounter",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "counter/multi-stat",
+    "category": "counter",
+    "file": "counter/multi-stat.tsx",
+    "compositionId": "counter-multi-stat",
+    "exportName": "MultiStat",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "cinematic/film-grain",
+    "category": "cinematic",
+    "file": "cinematic/film-grain.tsx",
+    "compositionId": "cine-film-grain",
+    "exportName": "FilmGrain",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "cinematic/letterbox",
+    "category": "cinematic",
+    "file": "cinematic/letterbox.tsx",
+    "compositionId": "cine-letterbox",
+    "exportName": "Letterbox",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 90,
+    "qc": null
+  },
+  {
+    "id": "cinematic/parallax-still",
+    "category": "cinematic",
+    "file": "cinematic/parallax-still.tsx",
+    "compositionId": "cine-parallax-still",
+    "exportName": "ParallaxStill",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "cinematic/vignette-pulse",
+    "category": "cinematic",
+    "file": "cinematic/vignette-pulse.tsx",
+    "compositionId": "cine-vignette-pulse",
+    "exportName": "VignettePulse",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "cinematic/color-shift",
+    "category": "cinematic",
+    "file": "cinematic/color-shift.tsx",
+    "compositionId": "cine-color-shift",
+    "exportName": "ColorShift",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 90,
+    "qc": null
+  }
+]

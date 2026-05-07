@@ -1,0 +1,14 @@
+=== IMPORTS ===
+import { WordByWord } from "./kinetic-text/word-by-word";
+import { SentenceSubtitle } from "./kinetic-text/sentence-subtitle";
+import { KaraokeLine } from "./kinetic-text/karaoke-line";
+
+=== DEMOS ===
+const D_ktext_1 = () => <WordByWord words={[{word:"India",startFrame:15,endFrame:25},{word:"now",startFrame:25,endFrame:35},{word:"hosts",startFrame:35,endFrame:45},{word:"1,850",startFrame:45,endFrame:60},{word:"Global",startFrame:60,endFrame:72},{word:"Capability",startFrame:72,endFrame:88},{word:"Centres",startFrame:88,endFrame:105},{word:"employing",startFrame:105,endFrame:120},{word:"1.9",startFrame:120,endFrame:130},{word:"million",startFrame:130,endFrame:145},{word:"professionals.",startFrame:145,endFrame:165}]} />;
+const D_ktext_2 = () => <SentenceSubtitle sentences={[{text:"India now hosts 1,850 Global Capability Centres.",startFrame:15,endFrame:75},{text:"They employ 1.9 million professionals.",startFrame:80,endFrame:135},{text:"This is no longer back-office work.",startFrame:140,endFrame:175}]} />;
+const D_ktext_3 = () => <KaraokeLine words={[{word:"India",startFrame:15,endFrame:25},{word:"now",startFrame:25,endFrame:35},{word:"hosts",startFrame:35,endFrame:45},{word:"1,850",startFrame:45,endFrame:60},{word:"GCCs",startFrame:60,endFrame:80}]} />;
+
+=== COMPOSITIONS ===
+<Composition id="ktext-word-by-word" component={D_ktext_1} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="ktext-sentence-subtitle" component={D_ktext_2} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="ktext-karaoke-line" component={D_ktext_3} width={1920} height={1080} fps={30} durationInFrames={150} />

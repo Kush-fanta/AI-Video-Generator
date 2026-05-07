@@ -1,0 +1,11 @@
+node_modules/
+dist/
+demos/
+.DS_Store
+package-lock.json
+public/*.png
+public/*.jpg
+.next/
+feedback/
+media/
+out/

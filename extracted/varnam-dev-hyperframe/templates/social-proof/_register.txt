@@ -1,0 +1,20 @@
+=== IMPORTS ===
+import { LogoWall } from "./social-proof/logo-wall";
+import { TopNList } from "./social-proof/top-n-list";
+import { Leaderboard } from "./social-proof/leaderboard";
+import { BrandRow } from "./social-proof/brand-row";
+import { FlagGrid } from "./social-proof/flag-grid";
+
+=== DEMOS ===
+const D_social_1 = () => <LogoWall logos={[{name:"Goldman Sachs",highlighted:true},{name:"JPMorgan",highlighted:true},{name:"Microsoft"},{name:"Google",highlighted:true},{name:"Amazon"},{name:"Apple",highlighted:true},{name:"Meta"},{name:"Deutsche Bank"},{name:"HSBC"}]} categoryLabel="GCC CLIENTS IN INDIA" at={15} />;
+const D_social_2 = () => <TopNList items={[{rank:1,name:"United States",value:"$25.5T",barPercent:100},{rank:2,name:"China",value:"$18.3T",barPercent:72},{rank:3,name:"Japan",value:"$4.2T",barPercent:16},{rank:4,name:"Germany",value:"$4.1T",barPercent:16},{rank:5,name:"India",value:"$3.5T",barPercent:14}]} categoryLabel="LARGEST ECONOMIES BY GDP" source="World Bank 2025" at={10} />;
+const D_social_3 = () => <Leaderboard rows={[{rank:1,name:"India",value:1800,maxValue:1800},{rank:2,name:"Philippines",value:1200,maxValue:1800},{rank:3,name:"Poland",value:450,maxValue:1800},{rank:4,name:"Romania",value:280,maxValue:1800},{rank:5,name:"Czech Republic",value:220,maxValue:1800}]} categoryLabel="GCC HEADCOUNT BY COUNTRY" at={10} />;
+const D_social_4 = () => <BrandRow brands={[{name:"TCS",value:"$28B"},{name:"Infosys",value:"$18B"},{name:"Wipro",value:"$11B"},{name:"HCL Tech",value:"$13B"}]} categoryLabel="IT SERVICES REVENUE" at={10} />;
+const D_social_5 = () => <FlagGrid countries={[{code:"BR",name:"Brazil",highlighted:true},{code:"RU",name:"Russia",highlighted:true},{code:"IN",name:"India",highlighted:true},{code:"CN",name:"China",highlighted:true},{code:"ZA",name:"South Africa",highlighted:true},{code:"US",name:"United States"},{code:"GB",name:"United Kingdom"},{code:"DE",name:"Germany"},{code:"JP",name:"Japan"}]} categoryLabel="BRICS MEMBERS" at={12} />;
+
+=== COMPOSITIONS ===
+<Composition id="social-logo-wall" component={D_social_1} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="social-top-n-list" component={D_social_2} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="social-leaderboard" component={D_social_3} width={1920} height={1080} fps={30} durationInFrames={210} />
+<Composition id="social-brand-row" component={D_social_4} width={1920} height={1080} fps={30} durationInFrames={120} />
+<Composition id="social-flag-grid" component={D_social_5} width={1920} height={1080} fps={30} durationInFrames={150} />

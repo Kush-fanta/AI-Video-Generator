@@ -1,0 +1,20 @@
+=== IMPORTS ===
+import { EventTimeline } from "./timeline/event-timeline";
+import { BeforeAfterWipe } from "./timeline/before-after-wipe";
+import { VerticalScroll } from "./timeline/vertical-scroll";
+import { EraSpotlight } from "./timeline/era-spotlight";
+import { DualTimeline } from "./timeline/dual-timeline";
+
+=== DEMOS ===
+const D_tl_1 = () => <EventTimeline events={[{year:"1991",title:"Liberalisation",description:"India opens economy"},{year:"2000",title:"Y2K Boom",description:"IT services explode"},{year:"2010",title:"GCC Era Begins",description:"MNCs set up captive centres"},{year:"2024",title:"Strategic Hubs",description:"R&D and AI lead"}]} categoryLabel="INDIA IT TIMELINE" at={15} />;
+const D_tl_2 = () => <BeforeAfterWipe beforeLabel="License Raj" afterLabel="Open Market" beforeYear="1975" afterYear="2024" categoryLabel="ECONOMIC SHIFT" at={10} />;
+const D_tl_3 = () => <VerticalScroll events={[{date:"1947",title:"Independence",description:"End of colonial rule"},{date:"1950",title:"Republic",description:"Constitution comes into force",color:"#6D917D"},{date:"1991",title:"Liberalisation",description:"Dismantling the License Raj"},{date:"2000",title:"IT Boom",description:"Bangalore becomes Silicon Valley of the East"},{date:"2020",title:"Digital India",description:"UPI processes 10B transactions monthly"}]} categoryLabel="MODERN INDIA" at={10} />;
+const D_tl_4 = () => <EraSpotlight eras={[{label:"Colonial",startYear:"1858",endYear:"1947",description:"British Crown rule over the Indian subcontinent"},{label:"Nehruvian",startYear:"1947",endYear:"1964",description:"Socialist planning, industrialisation, non-alignment"},{label:"Emergency",startYear:"1975",endYear:"1977",description:"Civil liberties suspended under Indira Gandhi"},{label:"Liberalisation",startYear:"1991",endYear:"2004",description:"Markets open, IT boom, global integration"}]} activeIndex={3} categoryLabel="INDIA ERAS" at={10} />;
+const D_tl_5 = () => <DualTimeline trackA={{label:"Policy",events:[{year:"1991",title:"LPG Reforms"},{year:"2000",title:"IT Act"},{year:"2016",title:"Demonetisation"},{year:"2020",title:"NEP 2020"}]}} trackB={{label:"Outcome",events:[{year:"1995",title:"Infosys IPO"},{year:"2004",title:"BPO Peak"},{year:"2017",title:"UPI Launch"},{year:"2023",title:"5M+ Tech Jobs"}]}} categoryLabel="POLICY vs OUTCOME" at={10} />;
+
+=== COMPOSITIONS ===
+<Composition id="tl-event-timeline" component={D_tl_1} width={1920} height={1080} fps={30} durationInFrames={210} />
+<Composition id="tl-before-after-wipe" component={D_tl_2} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="tl-vertical-scroll" component={D_tl_3} width={1920} height={1080} fps={30} durationInFrames={210} />
+<Composition id="tl-era-spotlight" component={D_tl_4} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="tl-dual-timeline" component={D_tl_5} width={1920} height={1080} fps={30} durationInFrames={210} />

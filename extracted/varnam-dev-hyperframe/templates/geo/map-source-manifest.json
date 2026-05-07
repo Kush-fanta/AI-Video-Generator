@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "notes": [
+    "Use Survey of India / LGD-derived India assets for India-focused maps.",
+    "Use world-atlas for the world base, but never as the featured India boundary.",
+    "Use geo/generate-varnam-world-geo.py and geo/generate-varnam-world-map.mjs to regenerate the canonical world-map asset surface.",
+    "geo/india.json is the canonical runtime India source: outline, viewbox, projection, states, districts, ACs, metros, all pre-projected to the 1510×820 Mercator canvas with centroids. Import via geo/india-paths.ts. Do not re-derive coordinates per-project; look them up."
+  ],
+  "india_runtime": {
+    "id": "india-canonical-runtime",
+    "file": "geo/india.json",
+    "view": "geo/india-paths.ts",
+    "regen": "node geo/generate-india-paths.mjs (rebuilds from geo/data/*.geojson)",
+    "projection": "Mercator, fitExtent [[20,20],[1490,800]] on 1510×820 canvas",
+    "viewbox": "0 0 1510 820",
+    "layers": ["outline", "states (36)", "districts (785)", "acs (4177)", "metros (28)"],
+    "license": "CC0 1.0",
+    "use": "Single source for India boundary, admin polygons, and metro coordinates inside the Remotion runtime. Pass outline + viewbox into geo/city-markers.tsx for India city overlays — do not author new India-specific components."
+  },
+  "india": {
+    "country": {
+      "preferred": {
+        "id": "india-soi",
+        "title": "India country boundary, Survey of India variant",
+        "format": "GeoJSON",
+        "coordinate_system": "EPSG:4326",
+        "license": "CC-BY-4.0",
+        "source": "India Geodata / DataMeet",
+        "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/administrative/country/india-soi.geojson",
+        "size_bytes": 12330591,
+        "use": "Canonical India outline for India-focused scenes."
+      },
+      "alternate": {
+        "id": "india-composite",
+        "title": "India country boundary, composite disputed-territory variant",
+        "format": "GeoJSON",
+        "coordinate_system": "EPSG:4326",
+        "license": "CC-BY-4.0",
+        "source": "India Geodata / DataMeet",
+        "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/administrative/country/india-composite.geojson",
+        "size_bytes": 10761294,
+        "use": "Use when the scene needs composite/disputed boundary storytelling."
+      },
+      "preview": {
+        "id": "india-land-simplified",
+        "title": "India simplified land outline",
+        "format": "GeoJSON",
+        "coordinate_system": "EPSG:4326",
+        "license": "CC-BY-4.0",
+        "source": "India Geodata / DataMeet",
+        "url": "https://raw.githubusercontent.com/yashveeeeeeer/india-geodata/main/data/administrative/country/india-land-simplified.geojson",
+        "size_bytes": 44621,
+        "use": "Fast previews only; not final render geometry."
+      }
+    },
+    "states": {
+      "visual": {
+        "id": "SOI_States",
+        "title": "State boundaries from Survey of India",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/SOI_States.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/SOI_States.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/SOI_States.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 9115217,
+          "parquet": 10780243,
+          "pmtiles": 5571801
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0 / CC-BY-4.0",
+        "source": "India Geodata / Survey of India",
+        "use": "Preferred state geometry for India visual maps."
+      },
+      "join": {
+        "id": "LGD_States",
+        "title": "State boundaries mapped to LGD codes",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/LGD_States.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/LGD_States.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/states/LGD_States.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 6467055,
+          "parquet": 7365957,
+          "pmtiles": 3520986
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0 / CC-BY-4.0",
+        "source": "India Geodata / Local Government Directory / Bharat Maps",
+        "use": "Preferred state geometry for data joins."
+      }
+    },
+    "districts": {
+      "visual": {
+        "id": "SOI_Districts",
+        "title": "District boundaries from Survey of India",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/SOI_Districts.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/SOI_Districts.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/SOI_Districts.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 27701204,
+          "parquet": 28691382,
+          "pmtiles": 12395728
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0 / CC-BY-4.0",
+        "source": "India Geodata / Survey of India",
+        "use": "Preferred district geometry for India visual maps."
+      },
+      "join": {
+        "id": "LGD_Districts",
+        "title": "District boundaries mapped to LGD codes",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/LGD_Districts.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/LGD_Districts.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/districts/LGD_Districts.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 22195016,
+          "parquet": 22178335,
+          "pmtiles": 12690364
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0 / CC-BY-4.0",
+        "source": "India Geodata / Local Government Directory / Bharat Maps",
+        "use": "Preferred district geometry for data joins."
+      }
+    },
+    "subdistricts": {
+      "visual": {
+        "id": "SOI_Subdistricts",
+        "title": "Subdistrict boundaries from Survey of India",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/SOI_Subdistricts.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/SOI_Subdistricts.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/SOI_Subdistricts.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 53447026,
+          "parquet": 56835970,
+          "pmtiles": 26914835
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0",
+        "source": "India Geodata / Survey of India",
+        "use": "Only for state or district drill-down scenes."
+      },
+      "join": {
+        "id": "LGD_Subdistricts",
+        "title": "Subdistrict boundaries mapped to LGD codes",
+        "formats": {
+          "geojsonl_7z": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/LGD_Subdistricts.geojsonl.7z",
+          "parquet": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/LGD_Subdistricts.parquet",
+          "pmtiles": "https://github.com/yashveeeeeeer/india-geodata/releases/download/admin/subdistricts/LGD_Subdistricts.pmtiles"
+        },
+        "sizes_bytes": {
+          "geojsonl_7z": 59849479,
+          "parquet": 65955060,
+          "pmtiles": 34118385
+        },
+        "coordinate_system": "EPSG:4326",
+        "license": "CC0-1.0",
+        "source": "India Geodata / Local Government Directory / Bharat Maps",
+        "use": "Only for state or district drill-down data joins."
+      }
+    }
+  },
+  "world": {
+    "base": {
+      "id": "world-atlas",
+      "title": "World Atlas TopoJSON from Natural Earth",
+      "package": "world-atlas",
+      "installed_in_repo": true,
+      "files": [
+        "countries-10m.json",
+        "countries-50m.json",
+        "countries-110m.json",
+        "land-10m.json",
+        "land-50m.json",
+        "land-110m.json"
+      ],
+      "coordinate_system": "EPSG:4326 spherical coordinates, unprojected TopoJSON",
+      "license": "ISC package; Natural Earth data is public domain",
+      "use": "World base map. Override India when India is narratively important."
+    },
+    "admin_fallback": {
+      "id": "geoBoundaries",
+      "title": "Global administrative boundaries",
+      "api_pattern": "https://www.geoboundaries.org/api/current/gbOpen/{ISO3}/{ADM}/",
+      "license": "CC-BY-4.0 / ODbL depending on release",
+      "use": "Non-India ADM1/ADM2 fallback. Not canonical for India."
+    }
+  }
+}

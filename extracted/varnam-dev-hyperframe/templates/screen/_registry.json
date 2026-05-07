@@ -1,0 +1,68 @@
+[
+  {
+    "id": "screen/browser-frame",
+    "category": "screen",
+    "file": "screen/browser-frame.tsx",
+    "compositionId": "screen-browser-frame",
+    "exportName": "BrowserFrame",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "screen/phone-mockup",
+    "category": "screen",
+    "file": "screen/phone-mockup.tsx",
+    "compositionId": "screen-phone-mockup",
+    "exportName": "PhoneMockup",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "screen/document-scroll",
+    "category": "screen",
+    "file": "screen/document-scroll.tsx",
+    "compositionId": "screen-document-scroll",
+    "exportName": "DocumentScroll",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "screen/terminal-readout",
+    "category": "screen",
+    "file": "screen/terminal-readout.tsx",
+    "compositionId": "screen-terminal-readout",
+    "exportName": "TerminalReadout",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "screen/social-post-card",
+    "category": "screen",
+    "file": "screen/social-post-card.tsx",
+    "compositionId": "screen-social-post-card",
+    "exportName": "SocialPostCard",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "screen/feature-spotlight",
+    "category": "screen",
+    "file": "screen/feature-spotlight.tsx",
+    "compositionId": "screen-feature-spotlight",
+    "exportName": "FeatureSpotlight",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  }
+]

@@ -1,0 +1,23 @@
+=== IMPORTS ===
+import { ArrowCallout } from "./callout/arrow-callout";
+import { CircleHighlight } from "./callout/circle-highlight";
+import { MagnifyCrop } from "./callout/magnify-crop";
+import { BracketAnnotation } from "./callout/bracket-annotation";
+import { ScreenPin } from "./callout/screen-pin";
+import { RedlineBox } from "./callout/redline-box";
+
+=== DEMOS ===
+const D_callout_1 = () => <ArrowCallout x={960} y={400} label="GDP Growth Peak" at={15} />;
+const D_callout_2 = () => <CircleHighlight x={700} y={500} radius={90} label="Key Region" at={10} />;
+const D_callout_3 = () => <MagnifyCrop x={480} y={360} cropWidth={280} cropHeight={180} label="Detail View" at={10} />;
+const D_callout_4 = () => <BracketAnnotation x={600} y={340} width={400} height={200} label="Policy Block" at={10} />;
+const D_callout_5 = () => <ScreenPin x={1200} y={350} label="Server Location" at={10} />;
+const D_callout_6 = () => <RedlineBox x={700} y={300} width={500} height={300} label="Exhibit A" at={10} />;
+
+=== COMPOSITIONS ===
+<Composition id="callout-arrow-callout" component={D_callout_1} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="callout-circle-highlight" component={D_callout_2} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="callout-magnify-crop" component={D_callout_3} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="callout-bracket-annotation" component={D_callout_4} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="callout-screen-pin" component={D_callout_5} width={1920} height={1080} fps={30} durationInFrames={120} />
+<Composition id="callout-redline-box" component={D_callout_6} width={1920} height={1080} fps={30} durationInFrames={150} />

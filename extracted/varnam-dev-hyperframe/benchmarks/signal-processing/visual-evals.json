@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "description": "Calibration benchmark for deterministic visual evals against known repo renders.",
+  "benchmarks": [
+    {
+      "id": "modi-sample-healthy",
+      "video": "benchmarks/signal-processing/fixtures/videos/modi-sample-healthy.mp4",
+      "notes": "Short healthy sample with hard resets and acceptable visual change.",
+      "expectations": {
+        "cut_rate": {
+          "metrics": {
+            "cuts_per_minute": { "min": 10.0 },
+            "longest_hold_seconds": { "max": 4.5 }
+          }
+        },
+        "visual_novelty": {
+          "metrics": {
+            "score": { "min": 0.75 },
+            "low_novelty_fraction": { "max": 0.25 },
+            "longest_plateau_seconds": { "max": 2.0 }
+          }
+        },
+        "layout_repetition": {
+          "metrics": {
+            "score": { "min": 0.95 },
+            "high_repetition_fraction": { "max": 0.1 },
+            "longest_plateau_seconds": { "max": 1.0 }
+          }
+        },
+        "frame_clutter": {
+          "metrics": {
+            "high_clutter_fraction": { "max": 0.05 },
+            "peak_frame_clutter_score": { "max": 0.3 }
+          }
+        }
+      }
+    },
+    {
+      "id": "pfbr-ch1-sparse",
+      "video": "benchmarks/signal-processing/fixtures/videos/pfbr-ch1-sparse.mp4",
+      "notes": "Known sparse chapter with long holds and low novelty plateaus.",
+      "expectations": {
+        "cut_rate": {
+          "metrics": {
+            "cuts_per_minute": { "max": 5.0 },
+            "longest_hold_seconds": { "min": 18.0 }
+          }
+        },
+        "visual_novelty": {
+          "metrics": {
+            "score": { "max": 0.4 },
+            "low_novelty_fraction": { "min": 0.6 },
+            "longest_plateau_seconds": { "min": 15.0 }
+          }
+        },
+        "layout_repetition": {
+          "metrics": {
+            "score": { "max": 0.5 },
+            "high_repetition_fraction": { "min": 0.5 },
+            "longest_plateau_seconds": { "min": 15.0 }
+          }
+        },
+        "frame_clutter": {
+          "metrics": {
+            "high_clutter_fraction": { "max": 0.05 },
+            "peak_frame_clutter_score": { "max": 0.35 }
+          }
+        }
+      }
+    },
+    {
+      "id": "pfbr-ch2-low-change",
+      "video": "benchmarks/signal-processing/fixtures/videos/pfbr-ch2-low-change.mp4",
+      "notes": "Known low-change chapter with one extreme hold and long novelty/repetition plateaus.",
+      "expectations": {
+        "cut_rate": {
+          "metrics": {
+            "cuts_per_minute": { "max": 2.5 },
+            "longest_hold_seconds": { "min": 60.0 }
+          }
+        },
+        "visual_novelty": {
+          "metrics": {
+            "score": { "max": 0.25 },
+            "low_novelty_fraction": { "min": 0.75 },
+            "longest_plateau_seconds": { "min": 50.0 }
+          }
+        },
+        "layout_repetition": {
+          "metrics": {
+            "score": { "max": 0.5 },
+            "high_repetition_fraction": { "min": 0.5 },
+            "longest_plateau_seconds": { "min": 15.0 }
+          }
+        },
+        "frame_clutter": {
+          "metrics": {
+            "high_clutter_fraction": { "max": 0.05 },
+            "peak_frame_clutter_score": { "max": 0.4 }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "kinetic-text/word-by-word",
+    "category": "kinetic-text",
+    "file": "kinetic-text/word-by-word.tsx",
+    "compositionId": "ktext-word-by-word",
+    "exportName": "WordByWord",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "kinetic-text/sentence-subtitle",
+    "category": "kinetic-text",
+    "file": "kinetic-text/sentence-subtitle.tsx",
+    "compositionId": "ktext-sentence-subtitle",
+    "exportName": "SentenceSubtitle",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "kinetic-text/karaoke-line",
+    "category": "kinetic-text",
+    "file": "kinetic-text/karaoke-line.tsx",
+    "compositionId": "ktext-karaoke-line",
+    "exportName": "KaraokeLine",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  }
+]

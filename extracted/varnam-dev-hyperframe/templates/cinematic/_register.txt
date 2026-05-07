@@ -1,0 +1,20 @@
+=== IMPORTS ===
+import { FilmGrain } from "./cinematic/film-grain";
+import { Letterbox } from "./cinematic/letterbox";
+import { ParallaxStill } from "./cinematic/parallax-still";
+import { VignettePulse } from "./cinematic/vignette-pulse";
+import { ColorShift } from "./cinematic/color-shift";
+
+=== DEMOS ===
+const D_cine_1 = () => <FilmGrain opacity={0.12} />;
+const D_cine_2 = () => <Letterbox at={15} barPercent={12.55} />;
+const D_cine_3 = () => <ParallaxStill background="demo.png" foreground="demo-cutout.png" at={0} />;
+const D_cine_4 = () => <VignettePulse intensity={0.5} />;
+const D_cine_5 = () => <ColorShift at={15} duration={60}><div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg, #c8a45a 0%, #3a5a8a 100%)" }} /></ColorShift>;
+
+=== COMPOSITIONS ===
+<Composition id="cine-film-grain" component={D_cine_1} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="cine-letterbox" component={D_cine_2} width={1920} height={1080} fps={30} durationInFrames={90} />
+<Composition id="cine-parallax-still" component={D_cine_3} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="cine-vignette-pulse" component={D_cine_4} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="cine-color-shift" component={D_cine_5} width={1920} height={1080} fps={30} durationInFrames={90} />

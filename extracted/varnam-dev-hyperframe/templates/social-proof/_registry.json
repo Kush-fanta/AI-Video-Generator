@@ -1,0 +1,57 @@
+[
+  {
+    "id": "social-proof/logo-wall",
+    "category": "social-proof",
+    "file": "social-proof/logo-wall.tsx",
+    "compositionId": "social-logo-wall",
+    "exportName": "LogoWall",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "social-proof/top-n-list",
+    "category": "social-proof",
+    "file": "social-proof/top-n-list.tsx",
+    "compositionId": "social-top-n-list",
+    "exportName": "TopNList",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "social-proof/leaderboard",
+    "category": "social-proof",
+    "file": "social-proof/leaderboard.tsx",
+    "compositionId": "social-leaderboard",
+    "exportName": "Leaderboard",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  },
+  {
+    "id": "social-proof/brand-row",
+    "category": "social-proof",
+    "file": "social-proof/brand-row.tsx",
+    "compositionId": "social-brand-row",
+    "exportName": "BrandRow",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 120,
+    "qc": null
+  },
+  {
+    "id": "social-proof/flag-grid",
+    "category": "social-proof",
+    "file": "social-proof/flag-grid.tsx",
+    "compositionId": "social-flag-grid",
+    "exportName": "FlagGrid",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  }
+]

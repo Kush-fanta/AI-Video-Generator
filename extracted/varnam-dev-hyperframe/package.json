@@ -1,0 +1,27 @@
+{
+  "name": "varnam",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "catalog": "pnpm --dir templates dev",
+    "hyperframes:doctor": "npx --yes hyperframes doctor",
+    "hyperframes:lint": "npx --yes hyperframes lint",
+    "hyperframes:compositions": "npx --yes hyperframes compositions",
+    "hyperframes:preview": "npx --yes hyperframes preview",
+    "hyperframes:render": "npx --yes hyperframes render",
+    "hyperframes:info": "npx --yes hyperframes info",
+    "catalog:cli": "python3 templates/cli.py"
+  },
+  "dependencies": {
+    "@types/react": "19.2.14",
+    "d3-geo": "^3.1.1",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/react-dom": "19.2.3",
+    "typescript": "6.0.2"
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "callout/arrow-callout",
+    "category": "callout",
+    "file": "callout/arrow-callout.tsx",
+    "compositionId": "callout-arrow-callout",
+    "exportName": "ArrowCallout",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "callout/circle-highlight",
+    "category": "callout",
+    "file": "callout/circle-highlight.tsx",
+    "compositionId": "callout-circle-highlight",
+    "exportName": "CircleHighlight",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "callout/magnify-crop",
+    "category": "callout",
+    "file": "callout/magnify-crop.tsx",
+    "compositionId": "callout-magnify-crop",
+    "exportName": "MagnifyCrop",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "callout/bracket-annotation",
+    "category": "callout",
+    "file": "callout/bracket-annotation.tsx",
+    "compositionId": "callout-bracket-annotation",
+    "exportName": "BracketAnnotation",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "callout/screen-pin",
+    "category": "callout",
+    "file": "callout/screen-pin.tsx",
+    "compositionId": "callout-screen-pin",
+    "exportName": "ScreenPin",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 120,
+    "qc": null
+  },
+  {
+    "id": "callout/redline-box",
+    "category": "callout",
+    "file": "callout/redline-box.tsx",
+    "compositionId": "callout-redline-box",
+    "exportName": "RedlineBox",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  }
+]

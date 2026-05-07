@@ -1,0 +1,66 @@
+.DS_Store
+.env
+.env.local
+# .claude — track rules, hooks, settings (plugin enforcement layer)
+# ignore only user-local files
+.claude/settings.local.json
+.claude/projects/
+.venv/
+.cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+remotion-geo/
+output/
+out/
+dist/
+node_modules/
+projects/
+.agent/skills/remotion-best-practices
+.agents/skills/remotion-best-practices/
+.windsurf/skills/remotion-best-practices/
+experiments/
+
+
+# Root-level downloaded research/media files (not project artifacts)
+/*.mp4
+/*.mp3
+/*.pdf
+/*.txt
+
+# Superpowers runtime/session files
+.superpowers/brainstorm/
+.worktrees/
+
+# Historical external Remotion template cache; active runtime catalog is templates/
+skills/varnam/templates/remotion/
+.codex/
+public/audio
+public/images
+media/
+
+# Local renders and scratch assets (not source)
+samples/
+
+# Research feature captures — large verification renders stay local
+research/directing-mechanics/features/**/*.mp4
+research/source-packs/
+
+# Local harness/editor state
+.claude/launch.json
+.claude/scheduled_tasks.lock
+.vscode/
+
+# Scratch exports and generated review output
+mograph_viz.html
+reports/
+tmp/
+Indiapill_claudedesign/
+docs/proposals/*.html
+docs/proposals/*.pdf
+docs/takeaways/*.pdf
+
+# Project payloads do not belong under templates/.
+templates/projects/
+templates/public/*/
+templates/public/collage-manifest.json

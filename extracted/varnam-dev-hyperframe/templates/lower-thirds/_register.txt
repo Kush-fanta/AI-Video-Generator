@@ -1,0 +1,23 @@
+=== IMPORTS ===
+import { SpeakerId } from "./lower-thirds/speaker-id";
+import { SourceCitation } from "./lower-thirds/source-citation";
+import { FactBox } from "./lower-thirds/fact-box";
+import { LocationTag } from "./lower-thirds/location-tag";
+import { ChapterLower } from "./lower-thirds/chapter-lower";
+import { ExpertCredential } from "./lower-thirds/expert-credential";
+
+=== DEMOS ===
+const D_lt_1 = () => <SpeakerId name="Nandan Nilekani" title="Co-founder, Infosys" at={15} />;
+const D_lt_2 = () => <SourceCitation source="IMF World Economic Outlook 2024" at={10} />;
+const D_lt_3 = () => <FactBox stat="$3.7T" label="India's GDP (2024)" detail="Overtook the UK to become the 5th largest economy" at={10} />;
+const D_lt_4 = () => <LocationTag city="Bengaluru" country="India" at={10} />;
+const D_lt_5 = () => <ChapterLower number="2" title="The Mechanism" at={10} />;
+const D_lt_6 = () => <ExpertCredential name="Raghuram Rajan" credential="Former Governor, Reserve Bank of India" at={10} />;
+
+=== COMPOSITIONS ===
+<Composition id="lt-speaker-id" component={D_lt_1} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="lt-source-citation" component={D_lt_2} width={1920} height={1080} fps={30} durationInFrames={90} />
+<Composition id="lt-fact-box" component={D_lt_3} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="lt-location-tag" component={D_lt_4} width={1920} height={1080} fps={30} durationInFrames={120} />
+<Composition id="lt-chapter-lower" component={D_lt_5} width={1920} height={1080} fps={30} durationInFrames={120} />
+<Composition id="lt-expert-credential" component={D_lt_6} width={1920} height={1080} fps={30} durationInFrames={150} />

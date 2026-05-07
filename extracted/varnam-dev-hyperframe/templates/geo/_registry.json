@@ -1,0 +1,79 @@
+[
+  {
+    "id": "geo/country-highlight",
+    "category": "geo",
+    "file": "geo/country-highlight.tsx",
+    "compositionId": "geo-country-highlight",
+    "exportName": "CountryHighlight",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "geo/route-trace",
+    "category": "geo",
+    "file": "geo/route-trace.tsx",
+    "compositionId": "geo-route-trace",
+    "exportName": "RouteTrace",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "geo/zoom-to-location",
+    "category": "geo",
+    "file": "geo/zoom-to-location.tsx",
+    "compositionId": "geo-zoom-to-location",
+    "exportName": "ZoomToLocation",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "geo/multi-country-compare",
+    "category": "geo",
+    "file": "geo/multi-country-compare.tsx",
+    "compositionId": "geo-multi-country-compare",
+    "exportName": "MultiCountryCompare",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "geo/choropleth-fill",
+    "category": "geo",
+    "file": "geo/choropleth-fill.tsx",
+    "compositionId": "geo-choropleth-fill",
+    "exportName": "ChoroplethFill",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "geo/city-markers",
+    "category": "geo",
+    "file": "geo/city-markers.tsx",
+    "compositionId": "geo-city-markers",
+    "exportName": "CityMarkers",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "geo/territory-expansion",
+    "category": "geo",
+    "file": "geo/territory-expansion.tsx",
+    "compositionId": "geo-territory-expansion",
+    "exportName": "TerritoryExpansion",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  }
+]

@@ -1,0 +1,26 @@
+=== IMPORTS ===
+import { CountryHighlight } from "./geo/country-highlight";
+import { RouteTrace } from "./geo/route-trace";
+import { ZoomToLocation } from "./geo/zoom-to-location";
+import { MultiCountryCompare } from "./geo/multi-country-compare";
+import { ChoroplethFill } from "./geo/choropleth-fill";
+import { CityMarkers } from "./geo/city-markers";
+import { TerritoryExpansion } from "./geo/territory-expansion";
+
+=== DEMOS ===
+const D_geo_1 = () => <CountryHighlight countryName="India" value="$3.7T" label="GDP (PPP) 2026" source="World Bank" />;
+const D_geo_2 = () => <RouteTrace points={[{x:150,y:180,label:"Mumbai"},{x:400,y:160,label:"Dubai"},{x:650,y:140,label:"London"},{x:850,y:200,label:"New York"}]} title="Spice Route to Finance Route" subtitle="How capital flows mirrored ancient trade" />;
+const D_geo_3 = () => <ZoomToLocation locationName="Bengaluru" subtitle="India's Silicon Plateau — 1,600+ GCCs" categoryLabel="Tech Geography" targetX={300} targetY={280} />;
+const D_geo_4 = () => <MultiCountryCompare countries={[{name:"India",value:"$3.7T",path:"M600,130 L700,125 L780,140 L760,170 L680,180 L600,165 Z"},{name:"Germany",value:"$4.5T",path:"M420,100 L470,95 L490,120 L460,135 L420,125 Z"},{name:"Japan",value:"$4.2T",path:"M850,130 L880,125 L890,150 L870,160 L845,148 Z"}]} title="GDP Comparison 2026" revealMode="sequential" source="IMF" />;
+const D_geo_5 = () => <ChoroplethFill regions={[{name:"North",value:82,path:"M200,100 L500,90 L520,180 L180,190 Z"},{name:"South",value:45,path:"M180,200 L520,190 L500,320 L220,330 Z"},{name:"East",value:68,path:"M530,90 L800,100 L790,200 L520,190 Z"},{name:"West",value:91,path:"M530,200 L790,210 L770,330 L510,320 Z"}]} title="Internet Penetration by Region" unit="% households" source="TRAI 2026" />;
+const D_geo_6 = () => <CityMarkers cities={[{name:"Delhi",x:420,y:220,value:"32M"},{name:"Mumbai",x:320,y:340,value:"25M"},{name:"Bengaluru",x:380,y:410,value:"14M"},{name:"Chennai",x:440,y:420,value:"12M"},{name:"Hyderabad",x:400,y:370,value:"11M"}]} title="Top 5 Metro Populations" categoryLabel="Urban India" />;
+const D_geo_7 = () => <TerritoryExpansion stages={[{year:"1526",path:"M400,200 L500,190 L520,240 L480,260 L400,250 Z",label:"Babur's conquest"},{year:"1600",path:"M350,180 L550,170 L580,260 L520,300 L340,280 Z",label:"Akbar's empire"},{year:"1700",path:"M300,160 L600,150 L640,300 L560,380 L280,340 Z",label:"Aurangzeb's peak"}]} title="Mughal Territorial Expansion" source="Historical Atlas" />;
+
+=== COMPOSITIONS ===
+<Composition id="geo-country-highlight" component={D_geo_1} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="geo-route-trace" component={D_geo_2} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="geo-zoom-to-location" component={D_geo_3} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="geo-multi-country-compare" component={D_geo_4} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="geo-choropleth-fill" component={D_geo_5} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="geo-city-markers" component={D_geo_6} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="geo-territory-expansion" component={D_geo_7} width={1920} height={1080} fps={30} durationInFrames={180} />

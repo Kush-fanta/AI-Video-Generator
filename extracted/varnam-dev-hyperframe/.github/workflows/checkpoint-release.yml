@@ -1,0 +1,21 @@
+name: Publish Checkpoint Release
+
+on:
+  push:
+    tags:
+      - "checkpoint*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish release for checkpoint tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          make_latest: false

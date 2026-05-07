@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "registry_status": "experimental",
+  "registry_date": "2026-04-23",
+  "render_manifest_contract": {
+    "overlay_kinds_allowlist": [
+      "text",
+      "label",
+      "graphic",
+      "highlight",
+      "callout",
+      "pull-quote",
+      "label-stamp"
+    ],
+    "beat_channels_allowlist": ["visual", "audio"],
+    "beat_event_kinds_allowlist": [
+      "sfx",
+      "music_hit",
+      "camera_push",
+      "camera_pull",
+      "camera_pan",
+      "flash",
+      "whip"
+    ],
+    "audio_track_kinds_allowlist": ["music", "ambience", "drone"],
+    "timing_sources_allowlist": ["tts", "frame", "external_srt"],
+    "note": "Render manifest validator reads these allowlists. Additions are contract changes — open a PR against this registry before authoring a manifest that uses a new value."
+  },
+  "capabilities": [
+    {
+      "id": "author_package",
+      "summary": "Write the script-first authoring pass and the minimum narration source needed for audio generation.",
+      "stage": "authoring",
+      "owner_lane": "core",
+      "status": "live",
+      "intents": [
+        "new video",
+        "major rewrite",
+        "storyboard creation",
+        "package rewrite"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "projects/<slug>/task-config.md",
+        "source material or research/findings.md"
+      ],
+      "outputs": [
+        "story/script.md"
+      ],
+      "authority_inputs": [
+        "channels/<name>/design.md",
+        "projects/<slug>/task-config.md"
+      ],
+      "native_surfaces": [
+        "Agent(core)",
+        "craft/storytelling.md",
+        "craft/scripting.md",
+        "craft/directing.md",
+        "tools/voiceover.md"
+      ],
+      "verification": [
+        "script is coherent and on-brief before VO generation",
+        "any narration source prepared for audio stays aligned to the script"
+      ],
+      "fallback_or_block": "If the brief is thin, tighten task-config before dispatch."
+    },
+    {
+      "id": "author_board_canvas",
+      "summary": "Author the board canvas from script, brief, and channel identity before audio timing exists.",
+      "stage": "authoring",
+      "owner_lane": "core",
+      "status": "live",
+      "intents": [
+        "board canvas creation",
+        "board rewrite from reviewer feedback",
+        "script interpretation",
+        "channel variation"
+      ],
+      "requires": [
+        "project path",
+        "projects/<slug>/task-config.md",
+        "story/script.md"
+      ],
+      "outputs": [
+        "direction/board/index.md",
+        "direction/board/<scene-id>.md"
+      ],
+      "authority_inputs": [
+        "channels/<name>/design.md",
+        "projects/<slug>/task-config.md",
+        "story/script.md"
+      ],
+      "native_surfaces": [
+        "Agent(core)",
+        "craft/storytelling.md",
+        "craft/directing.md",
+        "craft/storyboarding.md",
+        "craft/motion-design.md"
+      ],
+      "verification": [
+        "board index and scene boards agree on one film spine",
+        "board scene flow interprets the script without timing math",
+        "reviewer board cold-read"
+      ],
+      "fallback_or_block": "If the brief is too thin to choose a script interpretation or channel variation, stop and tighten the brief before authoring the board."
+    },
+    {
+      "id": "research_evidence_and_media",
+      "summary": "Verify facts, source rights-clear media, and land research outputs on disk.",
+      "stage": "research",
+      "owner_lane": "researcher",
+      "status": "live",
+      "intents": [
+        "fact check",
+        "source archival media",
+        "verify disputed claim",
+        "download research assets"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "projects/<slug>/task-config.md",
+        "topic or investigation angle"
+      ],
+      "outputs": [
+        "research/findings.md",
+        "research/source.raw.md",
+        "research/media-index.md",
+        "project-owned downloaded assets under research/media/ or images/refs/"
+      ],
+      "authority_inputs": [
+        "projects/<slug>/task-config.md",
+        "channels/<name>/design.md",
+        ".claude/skills/varnam/craft/research-evidence.md",
+        ".claude/skills/varnam/tools/source-priority.md"
+      ],
+      "native_surfaces": [
+        "Agent(researcher)",
+        "fetch/read tool",
+        "scripts/research/asset_download.py",
+        "scripts/visual/verify_assets.py"
+      ],
+      "verification": [
+        "source URLs recorded",
+        "rights note recorded",
+        "files landed on disk",
+        "findings propagated into authored package when needed"
+      ],
+      "fallback_or_block": "If rights are unclear or access is blocked, return BLOCKED explicitly instead of a fake completion."
+    },
+    {
+      "id": "review_package",
+      "summary": "Cold-read the authored package and route real weaknesses before build.",
+      "stage": "review",
+      "owner_lane": "reviewer",
+      "status": "live",
+      "intents": [
+        "package review",
+        "storyboard pressure test",
+        "pre-build review"
+      ],
+      "requires": [
+        "project path",
+        "story/script.md",
+        "direction/board/index.md",
+        "direction/board/<scene-id>.md",
+        "direction/render-manifest.yaml",
+        "audio/voiceover.words.json",
+        "audio/voiceover.tagged.txt"
+      ],
+      "outputs": [
+        "reviewer verdict text",
+        "reviewer findings shaped for remediation lanes"
+      ],
+      "authority_inputs": [
+        "projects/<slug>/task-config.md",
+        "channel files",
+        "docs/contracts/reviewer-findings.md"
+      ],
+      "native_surfaces": [
+        "Agent(reviewer)",
+        "craft/storytelling.md",
+        "craft/scripting.md",
+        "craft/directing.md",
+        "craft/storyboarding.md"
+      ],
+      "verification": [
+        "package has no figure-it-out-in-build gaps",
+        "findings mapped to remediation lanes"
+      ],
+      "fallback_or_block": "If package artifacts are missing, do not infer them from code; send work back to authoring."
+    },
+    {
+      "id": "review_render_and_diagnose",
+      "summary": "Review rendered output and isolate root cause across render, timing, media, code, and authored package.",
+      "stage": "review",
+      "owner_lane": "reviewer",
+      "status": "live",
+      "intents": [
+        "render review",
+        "diagnose failure",
+        "check pacing",
+        "check masking",
+        "verify visual or audio complaint"
+      ],
+      "requires": [
+        "project path",
+        "render artifact or component artifact",
+        "relevant package/spec/timing files"
+      ],
+      "outputs": [
+        "reviewer findings",
+        "diagnosis-backed remediation lane"
+      ],
+      "authority_inputs": [
+        "docs/contracts/reviewer-findings.md",
+        "docs/contracts/timing-contract.md",
+        "projects/<slug>/task-config.md",
+        "channel files"
+      ],
+      "native_surfaces": [
+        "Agent(reviewer)",
+        "scripts/review/benchmarks/*",
+        "scripts/run.py render:preflight",
+        "scripts/visual/analyze_media.py"
+      ],
+      "verification": [
+        "signal pass before vision",
+        "targeted proof scope stated",
+        "finding_status recorded"
+      ],
+      "fallback_or_block": "If signals cannot run, state the diagnostic downgrade explicitly instead of silently skipping to vision."
+    },
+    {
+      "id": "compose_film",
+      "summary": "Stitch beats, wire VO to visuals, own timing lock usage, and compose the film on the approved runtime timeline after package approval.",
+      "stage": "composition",
+      "owner_lane": "editor",
+      "status": "live",
+      "intents": [
+        "compose chapter",
+        "stitch film",
+        "wire VO to beats",
+        "apply timing lock"
+      ],
+      "requires": [
+        "approved package",
+        "approved board and render-manifest cuts",
+        "timing lock artifacts when VO exists",
+        "specialist outputs where the approved board, render manifest, or spec calls for them"
+      ],
+      "outputs": [
+        "chapter or film runtime composition updates",
+        "assembled render-ready timeline"
+      ],
+      "authority_inputs": [
+        "direction/render-manifest.yaml",
+        "audio/timing.lock.json",
+        "audio/voiceover.words.json",
+        "projects/<slug>/task-config.md"
+      ],
+      "native_surfaces": [
+        "editor main session",
+        "HyperFrames HTML composition",
+        "docs/contracts/timing-contract.md"
+      ],
+      "verification": [
+        "targeted preview renders",
+        "reviewer render verdict"
+      ],
+      "fallback_or_block": "Dispatch bounded execution to the owning specialist lane; keep thread-holding composition decisions in the editor when timing and beat ownership are coupled."
+    },
+    {
+      "id": "generate_voiceover_and_timing_lock",
+      "summary": "Generate voiceover audio, produce words.json, and refresh timing lock for downstream manifest derivation.",
+      "stage": "audio",
+      "owner_lane": "audio",
+      "status": "live",
+      "intents": [
+        "generate voiceover",
+        "align words",
+        "refresh timing lock"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "story/script.md",
+        "output path"
+      ],
+      "outputs": [
+        "audio/voiceover.mp3",
+        "audio/voiceover.words.json",
+        "audio/voiceover.tagged.txt",
+        "audio/voiceover.srt",
+        "audio/timing.lock.json"
+      ],
+      "authority_inputs": [
+        "channels/<name>/design.md",
+        "story/script.md",
+        "docs/contracts/timing-contract.md"
+      ],
+      "native_surfaces": [
+        "Agent(audio)",
+        "scripts/audio/voiceover.py",
+        "scripts/audio/lock_timing.py",
+        "scripts/run.py render:preflight"
+      ],
+      "verification": [
+        "strict alignment clean",
+        "lock refreshed",
+        "silences enumerated when storyboard exists",
+        "preflight render passes with --require-lock"
+      ],
+      "fallback_or_block": "Missing voiceover source or output path is a hard stop."
+    },
+    {
+      "id": "generate_score_sfx_mix",
+      "summary": "Generate score, SFX, and final mix for the film.",
+      "stage": "audio",
+      "owner_lane": "audio",
+      "status": "deferred",
+      "intents": [
+        "generate score",
+        "generate SFX",
+        "mix audio"
+      ],
+      "requires": [
+        "score or mix brief"
+      ],
+      "outputs": [
+        "not live in current production mode"
+      ],
+      "authority_inputs": [
+        ".claude/agents/audio.md"
+      ],
+      "native_surfaces": [
+        "audio lane documentation only"
+      ],
+      "verification": [
+        "lane must refuse with DEFERRED_AUDIO_CAPABILITY"
+      ],
+      "fallback_or_block": "Keep scope to voiceover plus timing lock until score/SFX/mix is explicitly reactivated."
+    },
+    {
+      "id": "fill_visual_placeholders_images",
+      "summary": "Generate or wire image assets into editor-marked visual slots and record a media manifest.",
+      "stage": "visual",
+      "owner_lane": "visual",
+      "status": "live",
+      "intents": [
+        "fill image placeholder",
+        "generate image beat",
+        "wire image assets to approved render slots"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "bounded beat or slot brief",
+        "image prompts or archival asset paths",
+        "output directory"
+      ],
+      "outputs": [
+        "generated or sourced image assets",
+        "research/media-index.md",
+        "research/media-manifest.md",
+        "asset path bindings for approved render slots"
+      ],
+      "authority_inputs": [
+        "channel files",
+        "approved board and render manifest",
+        ".claude/skills/varnam/tools/media-index.md",
+        ".claude/skills/varnam/tools/image-gen.md"
+      ],
+      "native_surfaces": [
+        "Agent(visual)",
+        "tools/image-gen.md",
+        "Gemini vision verification"
+      ],
+      "verification": [
+        "asset matches prompt or archival subject",
+        "media index row written or updated",
+        "manifest row written",
+        "slot binding checked when a render-manifest path is provided"
+      ],
+      "fallback_or_block": "If bounded beat/slot ownership, prompt, output directory, or reusable media inventory is missing, stop instead of inventing coverage."
+    },
+    {
+      "id": "fill_visual_placeholders_video",
+      "summary": "Generate motion video beats for editor-marked visual slots.",
+      "stage": "visual",
+      "owner_lane": "visual",
+      "status": "stub",
+      "intents": [
+        "generate video beat",
+        "fill video placeholder"
+      ],
+      "requires": [
+        "video prompt packet",
+        "target duration",
+        "bounded slot ownership"
+      ],
+      "outputs": [
+        "pending until video generation doc is wired"
+      ],
+      "authority_inputs": [
+        ".claude/skills/varnam/tools/video-gen.md"
+      ],
+      "native_surfaces": [
+        "tools/video-gen.md stub"
+      ],
+      "verification": [
+        "must be flagged as pending rather than presented as available"
+      ],
+      "fallback_or_block": "Handle image beats only and mark video beats as pending until tools/video-gen.md stops being a stub."
+    },
+    {
+      "id": "build_mograph_components",
+      "summary": "Select or build runtime motion graphics and data-viz components for specific beats.",
+      "stage": "motion",
+      "owner_lane": "mograph",
+      "status": "live",
+      "intents": [
+        "build chart component",
+        "implement typography frame",
+        "adapt composition for beat"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "locked visual spec",
+        "approved composition path or render-manifest cut",
+        "timing event or duration",
+        "requested beat or bounded beat range"
+      ],
+      "outputs": [
+        "HyperFrames composition code or variable updates for the requested beats"
+      ],
+      "authority_inputs": [
+        "channel files",
+        "approved beat spec",
+        "docs/contracts/timing-contract.md",
+        "primitive/sprite design pack and shared composition library"
+      ],
+      "native_surfaces": [
+        "Agent(mograph)",
+        "HyperFrames compositions",
+        "HyperFrames quickstart"
+      ],
+      "verification": [
+        "preview frame generated",
+        "coordinates and config-driven values verified"
+      ],
+      "fallback_or_block": "Thin visual direction, missing timing, or chapter-owned scope is a hard stop; do not invent the frame."
+    },
+    {
+      "id": "build_map_components",
+      "summary": "Build map scenes from locked geographic specs using projection math and channel values.",
+      "stage": "maps",
+      "owner_lane": "maps",
+      "status": "live",
+      "intents": [
+        "build map beat",
+        "implement geographic scene",
+        "animate route or bounds"
+      ],
+      "requires": [
+        "channel name",
+        "project path",
+        "map spec with bounds, labels, routes, and timing",
+        "storyboard cut ID and binding target",
+        "requested beat or bounded map slot ownership"
+      ],
+      "outputs": [
+        "manifest-ready map composition binding for the requested beat",
+        "shared geo data or composition updates when required"
+      ],
+      "authority_inputs": [
+        "channel files",
+        ".claude/skills/varnam/tools/maps.md",
+        "docs/contracts/timing-contract.md"
+      ],
+      "native_surfaces": [
+        "Agent(maps)",
+        "D3 projection math",
+        "templates/geo/",
+        "templates/swarajya-kit/map-callout.tsx",
+        "templates/swarajya-kit/map-dots.tsx",
+        "templates/geo"
+      ],
+      "verification": [
+        "preview frame checked",
+        "coordinate sanity check completed"
+      ],
+      "fallback_or_block": "Missing bounds, camera keyframes, labels, or timing is a hard stop."
+    },
+    {
+      "id": "google_workspace_ops",
+      "summary": "Use Google Workspace apps directly through the thin gws adapter for Docs, Drive, Sheets, Gmail, Calendar, or Chat workflows.",
+      "stage": "workspace",
+      "owner_lane": "editor",
+      "status": "partial",
+      "intents": [
+        "read Google Doc",
+        "update Sheet tracker",
+        "upload deliverable to Drive",
+        "post status to Chat"
+      ],
+      "requires": [
+        "gws installed",
+        "user-owned auth/session",
+        "object IDs or URLs for the requested app surface"
+      ],
+      "outputs": [
+        "app-native Workspace change or read result with provenance references"
+      ],
+      "authority_inputs": [
+        ".claude/skills/varnam/tools/google-workspace.md"
+      ],
+      "native_surfaces": [
+        "gws CLI",
+        "Google Workspace app-native verbs"
+      ],
+      "verification": [
+        "target object reference recorded",
+        "explicit degraded-mode report when auth or scopes are missing"
+      ],
+      "fallback_or_block": "If gws auth or scopes are missing, report degraded mode explicitly; do not build a local Workspace abstraction as a workaround."
+    }
+  ]
+}

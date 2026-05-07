@@ -1,0 +1,57 @@
+[
+  {
+    "id": "timeline/event-timeline",
+    "category": "timeline",
+    "file": "timeline/event-timeline.tsx",
+    "compositionId": "tl-event-timeline",
+    "exportName": "EventTimeline",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  },
+  {
+    "id": "timeline/before-after-wipe",
+    "category": "timeline",
+    "file": "timeline/before-after-wipe.tsx",
+    "compositionId": "tl-before-after-wipe",
+    "exportName": "BeforeAfterWipe",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "timeline/vertical-scroll",
+    "category": "timeline",
+    "file": "timeline/vertical-scroll.tsx",
+    "compositionId": "tl-vertical-scroll",
+    "exportName": "VerticalScroll",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  },
+  {
+    "id": "timeline/era-spotlight",
+    "category": "timeline",
+    "file": "timeline/era-spotlight.tsx",
+    "compositionId": "tl-era-spotlight",
+    "exportName": "EraSpotlight",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "timeline/dual-timeline",
+    "category": "timeline",
+    "file": "timeline/dual-timeline.tsx",
+    "compositionId": "tl-dual-timeline",
+    "exportName": "DualTimeline",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  }
+]

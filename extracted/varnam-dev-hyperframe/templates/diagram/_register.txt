@@ -1,0 +1,23 @@
+=== IMPORTS ===
+import { StepSequence } from "./diagram/step-sequence";
+import { CauseEffectChain } from "./diagram/cause-effect-chain";
+import { Funnel } from "./diagram/funnel";
+import { OrgChart } from "./diagram/org-chart";
+import { CycleLoop } from "./diagram/cycle-loop";
+import { TwoPathSplit } from "./diagram/two-path-split";
+
+=== DEMOS ===
+const D_diagram_1 = () => <StepSequence steps={[{number:"01", title:"Cheap Labor", description:"Cost arbitrage era"},{number:"02", title:"Skills Build", description:"Engineering depth develops"},{number:"03", title:"Strategic Hub", description:"R&D moves in-country"}]} at={15} />;
+const D_diagram_2 = () => <CauseEffectChain items={[{label:"Oil Shock", value:"1973"},{label:"Dollar Recycling"},{label:"Petrodollar System", value:"$80B"},{label:"US Hegemony"}]} at={15} />;
+const D_diagram_3 = () => <Funnel stages={[{label:"Total Applicants", value:"120K", percent:100},{label:"Screened", value:"42K", percent:35},{label:"Interviewed", value:"8.4K", percent:7},{label:"Hired", value:"1.2K", percent:1}]} at={15} />;
+const D_diagram_4 = () => <OrgChart root={{label:"Ministry of Defence", children:[{label:"Army", children:[{label:"Northern Cmd"},{label:"Western Cmd"}]},{label:"Navy", children:[{label:"Eastern Fleet"},{label:"Western Fleet"}]},{label:"Air Force"}]}} at={15} />;
+const D_diagram_5 = () => <CycleLoop nodes={[{label:"Collect Data", description:"Sensors & surveys"},{label:"Analyze", description:"Pattern recognition"},{label:"Decide", description:"Policy choice"},{label:"Implement", description:"Execute on ground"}]} at={15} />;
+const D_diagram_6 = () => <TwoPathSplit input="GCC Strategy" pathA={{label:"Cost Center", value:"$12/hr", color:"#907070"}} pathB={{label:"Innovation Hub", value:"$45/hr", color:"#6D917D"}} at={15} />;
+
+=== COMPOSITIONS ===
+<Composition id="diagram-step-sequence" component={D_diagram_1} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="diagram-cause-effect-chain" component={D_diagram_2} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="diagram-funnel" component={D_diagram_3} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="diagram-org-chart" component={D_diagram_4} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="diagram-cycle-loop" component={D_diagram_5} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="diagram-two-path-split" component={D_diagram_6} width={1920} height={1080} fps={30} durationInFrames={150} />

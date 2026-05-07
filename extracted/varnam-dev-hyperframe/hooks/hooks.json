@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "pre-tool": [
+      {
+        "tool": "Bash",
+        "pattern": "remotion render",
+        "command": "bash -lc 'PROJECT_ROOT=\"${PROJECT_DIR:-.}\"; if [ -f \"$PROJECT_ROOT/audio/voiceover.words.json\" ]; then python3 scripts/preflight_render.py \"$PROJECT_ROOT\" --require-lock; else exit 0; fi'",
+        "block_on_failure": true
+      }
+    ]
+  }
+}

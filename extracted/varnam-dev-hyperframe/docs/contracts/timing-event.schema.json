@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://varnam.local/contracts/timing-event.schema.json",
+  "title": "Varnam Timing Event",
+  "description": "Timing event contract for global frame resolution.",
+  "type": "object",
+  "required": ["timing_mode"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timing_mode": {
+      "type": "string",
+      "enum": ["vo", "scene"]
+    },
+    "vo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["word", "occurrence"],
+      "properties": {
+        "word": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurrence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "offsetFrames": {
+          "type": "integer",
+          "default": 0
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["globalFrame"],
+      "properties": {
+        "globalFrame": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "timing_mode": {
+            "const": "vo"
+          }
+        },
+        "required": ["timing_mode"]
+      },
+      "then": {
+        "required": ["vo"],
+        "not": {
+          "required": ["scene"]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "timing_mode": {
+            "const": "scene"
+          }
+        },
+        "required": ["timing_mode"]
+      },
+      "then": {
+        "required": ["scene"],
+        "not": {
+          "required": ["vo"]
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

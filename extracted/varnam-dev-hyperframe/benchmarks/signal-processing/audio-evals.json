@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "description": "Calibration benchmark for deterministic audio evals against frozen mix fixtures.",
+  "benchmarks": [
+    {
+      "id": "bengal-fall-healthy-mix-75-105",
+      "input": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-mix.mp3",
+      "notes": "Frozen real mix excerpt with active narration and non-intrusive score.",
+      "expectations": {
+        "reveal_contraction": {
+          "args": {
+            "voiceover_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-voiceover.mp3",
+            "words_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.words.json",
+            "markers_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.reveals.json"
+          },
+          "metrics": {
+            "supported_reveal_fraction": { "min": 1.0 },
+            "weakest_reveal_contraction_db": { "min": 3.0 }
+          }
+        },
+        "speech_masking": {
+          "args": {
+            "voiceover_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-voiceover.mp3",
+            "words_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.words.json"
+          },
+          "metrics": {
+            "p90_speech_masking_db": { "max": 0.2 },
+            "high_mask_fraction": { "max": 0.01 },
+            "longest_mask_run_seconds": { "max": 0.5 }
+          }
+        }
+      }
+    },
+    {
+      "id": "bengal-fall-synthetic-masked-75-105",
+      "input": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-synthetic-masked.mp3",
+      "notes": "Synthetic failure fixture built from the same frozen voiceover excerpt with added mid-band masking noise.",
+      "expectations": {
+        "speech_masking": {
+          "args": {
+            "voiceover_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-voiceover.mp3",
+            "words_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.words.json"
+          },
+          "metrics": {
+            "p90_speech_masking_db": { "min": 3.0 },
+            "high_mask_fraction": { "min": 0.25 },
+            "longest_mask_run_seconds": { "min": 1.0 }
+          }
+        }
+      }
+    },
+    {
+      "id": "bengal-fall-synthetic-no-drop-75-105",
+      "input": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-synthetic-no-drop.mp3",
+      "notes": "Synthetic failure fixture built from the frozen real mix by holding accompaniment through reveal beats that should contract.",
+      "expectations": {
+        "reveal_contraction": {
+          "args": {
+            "voiceover_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105-voiceover.mp3",
+            "words_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.words.json",
+            "markers_path": "benchmarks/signal-processing/fixtures/audio/bengal-fall-75-105.reveals.json"
+          },
+          "metrics": {
+            "supported_reveal_fraction": { "max": 0.25 },
+            "weakest_reveal_contraction_db": { "max": 1.5 }
+          }
+        }
+      }
+    }
+  ]
+}

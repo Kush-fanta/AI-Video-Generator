@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "description": "Calibration benchmark for deterministic storyboard-time structure evals.",
+  "benchmarks": [
+    {
+      "id": "pfbr-timed-storyboard",
+      "input": "benchmarks/signal-processing/fixtures/storyboards/pfbr-timed-storyboard.md",
+      "notes": "Timed storyboard with deliberate mode cycling across text, data, diagram, archival, map, and bridge.",
+      "expectations": {
+        "mode_interleave": {
+          "metrics": {
+            "effective_mode_count": { "min": 6 },
+            "switch_count": { "min": 25 },
+            "distribution_entropy": { "min": 0.75 },
+            "max_mode_run_seconds": { "max": 35.0 }
+          }
+        }
+      }
+    },
+    {
+      "id": "mode-interleave-monotone-fixture",
+      "input": "benchmarks/signal-processing/fixtures/mode-interleave-monotone.md",
+      "notes": "Synthetic timed storyboard with long uninterrupted text runs.",
+      "expectations": {
+        "mode_interleave": {
+          "metrics": {
+            "effective_mode_count": { "max": 2 },
+            "distribution_entropy": { "max": 0.5 },
+            "max_mode_run_seconds": { "min": 39.0 }
+          }
+        }
+      }
+    }
+  ]
+}

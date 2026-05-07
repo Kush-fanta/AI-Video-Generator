@@ -1,0 +1,20 @@
+=== IMPORTS ===
+import { BrowserFrame } from "./screen/browser-frame";
+import { PhoneMockup } from "./screen/phone-mockup";
+import { DocumentScroll } from "./screen/document-scroll";
+import { TerminalReadout } from "./screen/terminal-readout";
+import { SocialPostCard } from "./screen/social-post-card";
+
+=== DEMOS ===
+const D_screen_1 = () => <BrowserFrame url="nasscom.in/gcc-report-2024" title="India GCC Report" content="India now hosts 1,850 Global Capability Centres employing 1.9 million professionals..." at={15} />;
+const D_screen_2 = () => <PhoneMockup content="India's GCC sector crosses $46B revenue" at={15} />;
+const D_screen_3 = () => <DocumentScroll title="Economic Survey 2024-25" passage="GCCs in India have moved beyond back-office roles into strategic functions including AI research, chip design, and global product engineering. The transformation represents a fundamental shift in how multinational corporations view their India operations." highlightText="beyond back-office" source="Ministry of Finance" at={15} />;
+const D_screen_4 = () => <TerminalReadout lines={["$ gcc --status", "> 1,850 centres active", "> 1.9M employees", "> $46B revenue", "> Strategic mode: ON"]} at={15} />;
+const D_screen_5 = () => <SocialPostCard username="IndiaPill" handle="@indiapill" text="India's GCCs aren't back-office anymore. They're running AI labs, chip design, and R&D for the world's biggest companies." likes={12400} reposts={3200} at={15} />;
+
+=== COMPOSITIONS ===
+<Composition id="screen-browser-frame" component={D_screen_1} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="screen-phone-mockup" component={D_screen_2} width={1920} height={1080} fps={30} durationInFrames={150} />
+<Composition id="screen-document-scroll" component={D_screen_3} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="screen-terminal-readout" component={D_screen_4} width={1920} height={1080} fps={30} durationInFrames={180} />
+<Composition id="screen-social-post-card" component={D_screen_5} width={1920} height={1080} fps={30} durationInFrames={150} />

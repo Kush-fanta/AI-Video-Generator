@@ -1,0 +1,90 @@
+[
+  {
+    "id": "diagram/step-sequence",
+    "category": "diagram",
+    "file": "diagram/step-sequence.tsx",
+    "compositionId": "diagram-step-sequence",
+    "exportName": "StepSequence",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "diagram/cause-effect-chain",
+    "category": "diagram",
+    "file": "diagram/cause-effect-chain.tsx",
+    "compositionId": "diagram-cause-effect-chain",
+    "exportName": "CauseEffectChain",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "diagram/funnel",
+    "category": "diagram",
+    "file": "diagram/funnel.tsx",
+    "compositionId": "diagram-funnel",
+    "exportName": "Funnel",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "diagram/org-chart",
+    "category": "diagram",
+    "file": "diagram/org-chart.tsx",
+    "compositionId": "diagram-org-chart",
+    "exportName": "OrgChart",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "diagram/cycle-loop",
+    "category": "diagram",
+    "file": "diagram/cycle-loop.tsx",
+    "compositionId": "diagram-cycle-loop",
+    "exportName": "CycleLoop",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 180,
+    "qc": null
+  },
+  {
+    "id": "diagram/two-path-split",
+    "category": "diagram",
+    "file": "diagram/two-path-split.tsx",
+    "compositionId": "diagram-two-path-split",
+    "exportName": "TwoPathSplit",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 150,
+    "qc": null
+  },
+  {
+    "id": "diagram/object-focus",
+    "category": "diagram",
+    "file": "diagram/object-focus.tsx",
+    "compositionId": "diagram-object-focus",
+    "exportName": "ObjectFocus",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  },
+  {
+    "id": "diagram/path-journey",
+    "category": "diagram",
+    "file": "diagram/path-journey.tsx",
+    "compositionId": "diagram-path-journey",
+    "exportName": "PathJourney",
+    "status": "draft",
+    "version": 1,
+    "durationFrames": 210,
+    "qc": null
+  }
+]
