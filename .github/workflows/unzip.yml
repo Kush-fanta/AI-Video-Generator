@@ -1,5 +1,8 @@
 name: Extract ZIP
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   workflow_dispatch:
 
@@ -8,19 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Unzip File
+      - name: Show Files
+        run: ls -la
+
+      - name: Extract ZIP
         run: |
-          unzip myproject.zip -d extracted
+          mkdir extracted
+          unzip "AI video Generator.zip" -d extracted
 
-      - name: Commit Extracted Files
+      - name: Commit Changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
           git add .
-          git commit -m "Extract zip content" || echo "No changes"
-
+          git commit -m "Extracted ZIP content" || echo "No changes"
           git push
